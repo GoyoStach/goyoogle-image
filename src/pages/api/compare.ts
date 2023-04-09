@@ -12,6 +12,8 @@ export const config = {
     },
 }
 
+const should_save = true
+
 
 const readFile = (req:NextApiRequest,saveLocally?:boolean):Promise<{fields:formidable.Fields;files:formidable.Files}>=>{
     const options:formidable.Options={}
@@ -39,9 +41,7 @@ export default async function handler(
           await fs.readdir(path.join(process.cwd()+'/public','/img'))
       } catch (error) {
           await fs.mkdir(path.join(process.cwd()+'/public','/img'))
-      }
-  
-      const should_save = true
+      }   
       
       const testos = await readFile(req , should_save)
       const test = Buffer.from(readFileSync(testos.files.myImage?.filepath)).toString('base64')

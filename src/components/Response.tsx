@@ -149,7 +149,7 @@ const Response = () => {
                 />
               </GridItem>
               <GridItem colSpan={3}>
-                <Heading as={"h2"}>Other results</Heading>
+                <Heading as={"h2"}>Other results :</Heading>
               </GridItem>
               {data.data.map((item, index) => {
                 if (index === 0) {
